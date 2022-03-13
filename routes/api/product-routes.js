@@ -11,7 +11,7 @@ router.get('/', async(req, res) => {
       {include: [
         // be sure to include its associated Category and Tag data
         { model: Tag, through: ProductTag, as: 'product_tags' },
-        { model: Category}
+        { model: Category, require:true}
       ]}
     );
     res.status(200).json(productData);
