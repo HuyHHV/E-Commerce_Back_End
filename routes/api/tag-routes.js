@@ -9,7 +9,7 @@ router.get('/', async(req, res) => {
    const tagData = await Tag.findAll(
      {include: [
       // be sure to include its associated Product data
-      { model: Product, through: ProductTag, as: 'tag_products' },
+      { model: Product, through: ProductTag, as: 'tagged_products' },
      ]}
    );
    res.status(200).json(tagData);
@@ -23,7 +23,7 @@ router.get('/:id',async (req, res) => {
     const tagData = await Tag.findByPk(req.params.id, 
       {include: [
        // be sure to include its associated Product data
-       { model: Product, through: ProductTag, as: 'tag_products' }
+       { model: Product, through: ProductTag, as: 'tagged_products' }
       ]});
     if (!tagData) {
       res.status(404).json({ message: 'No tag found with this id!' });
@@ -39,8 +39,8 @@ router.get('/:id',async (req, res) => {
 router.post('/', async(req, res) => {
   // create a new tag
   try {
-    const newCategory= await Tag.create(req.body);
-    res.status(200).json(newCategory)
+    const tag= await Tag.create(req.body);
+    res.status(200).json(tag)
   }catch(err) {console.log(err);
     res.status(400).json(err);}
 });

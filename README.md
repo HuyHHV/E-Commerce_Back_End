@@ -21,7 +21,7 @@ This app is the back end for an e-commerce site using Express.js API and Sequali
 
 The following video shows the web application's appearance and functionality:
 
-![video.](./screenshot.gif)
+https://drive.google.com/file/d/1OX0-r9SO-DdNF_ZzeQigcWcq2Iryrp5l/view
 
 
 ## URLs
